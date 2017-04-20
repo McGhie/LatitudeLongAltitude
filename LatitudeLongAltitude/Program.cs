@@ -11,6 +11,8 @@ namespace LatitudeLongAltitude
 {
     internal class Program
     {
+        private string Path = Environment.CurrentDirectory;
+        
         private static IEnumerable<string[]> LoadCsvData(string path, params char[] separator)
         {
             return from line in File.ReadLines(path)
@@ -41,7 +43,7 @@ namespace LatitudeLongAltitude
             var Alt = "";
             var googleElavation = "https://maps.googleapis.com/maps/api/elevation/json?locations=";
             var elevation = "";
-            var filenameNew2 = @"C:\Users\blue\Desktop\New folder\entries2.json";
+            var filenameNew2 = @$"{Path}entries2.json";
 
 
             googleElavation = googleElavation + latlon500 + key;
@@ -84,8 +86,8 @@ namespace LatitudeLongAltitude
 
         private static void getthedata()
         {
-            var filename = @"C:\Users\blue\Desktop\New folder\postcodes.csv";
-            var filenameNew = @"C:\Users\blue\Desktop\New folder\entriesAllmost.json";
+            var filename = @$"{Path}postcodes.csv";
+            var filenameNew = @$"{Path}entriesAllmost.json";
             var split = ',';
 
 
@@ -166,10 +168,10 @@ namespace LatitudeLongAltitude
 
         private static void createfile()
         {
-            var filename = @"C:\Users\blue\Desktop\New folder\postcodes.csv";
-            var googelelvationF = @"C:\Users\blue\Desktop\New folder\entriesAllmost.json";
-            var filenameNew = @"C:\Users\blue\Desktop\New folder\data.json";
-            var filenameSmall = @"C:\Users\blue\Desktop\New folder\datasmall.js";
+            var filename = @$"{Path}postcodes.csv";
+            var googelelvationF = @$"{Path}entriesAllmost.json";
+            var filenameNew = @$"{Path}data.json";
+            var filenameSmall = @$"{Path}datasmall.js";
 
             var split = ',';
 
@@ -280,7 +282,7 @@ namespace LatitudeLongAltitude
 
         private static void Main(string[] args)
         {
-//            var filename = @"C:\Users\blue\Desktop\New folder\entriesAllmost.json";
+//            var filename = @$"{Path}entriesAllmost.json";
             //   getthedata();
 
             createfile();
