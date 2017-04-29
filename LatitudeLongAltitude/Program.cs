@@ -11,20 +11,18 @@ namespace LatitudeLongAltitude
 {
     internal class Program
     {
-        private string Path = Environment.CurrentDirectory;
-        
         private static IEnumerable<string[]> LoadCsvData(string path, params char[] separator)
         {
             return from line in File.ReadLines(path)
-                let parts = (from p in line.Split(separator, StringSplitOptions.RemoveEmptyEntries) select p)
-                select parts.ToArray();
+                   let parts = (from p in line.Split(separator, StringSplitOptions.RemoveEmptyEntries) select p)
+                   select parts.ToArray();
         }
 
         /*https://maps.googleapis.com/maps/api/elevation/json?locations=40.714728,-73.998672 */
 
         public static string code(string Url)
         {
-            var myRequest = (HttpWebRequest) WebRequest.Create(Url);
+            var myRequest = (HttpWebRequest)WebRequest.Create(Url);
 
             myRequest.Method = "GET";
             var myResponse = myRequest.GetResponse();
@@ -43,7 +41,7 @@ namespace LatitudeLongAltitude
             var Alt = "";
             var googleElavation = "https://maps.googleapis.com/maps/api/elevation/json?locations=";
             var elevation = "";
-            var filenameNew2 = @$"{Path}entries2.json";
+            var filenameNew2 = @"C:\Users\blue\Desktop\New folder\entries2.json";
 
 
             googleElavation = googleElavation + latlon500 + key;
@@ -86,8 +84,8 @@ namespace LatitudeLongAltitude
 
         private static void getthedata()
         {
-            var filename = @$"{Path}postcodes.csv";
-            var filenameNew = @$"{Path}entriesAllmost.json";
+            var filename = @"C:\Users\blue\Desktop\New folder\postcodes.csv";
+            var filenameNew = @"C:\Users\blue\Desktop\New folder\entriesAllmost.json";
             var split = ',';
 
 
@@ -168,10 +166,10 @@ namespace LatitudeLongAltitude
 
         private static void createfile()
         {
-            var filename = @$"{Path}postcodes.csv";
-            var googelelvationF = @$"{Path}entriesAllmost.json";
-            var filenameNew = @$"{Path}data.json";
-            var filenameSmall = @$"{Path}datasmall.js";
+            var filename = @"C:\Users\blue\Desktop\New folder\postcodes.csv";
+            var googelelvationF = @"C:\Users\blue\Desktop\New folder\entriesAllmost.json";
+            var filenameNew = @"C:\Users\blue\Desktop\New folder\data.json";
+            var filenameSmall = @"C:\Users\blue\Desktop\New folder\datasmall.js";
 
             var split = ',';
 
@@ -282,7 +280,7 @@ namespace LatitudeLongAltitude
 
         private static void Main(string[] args)
         {
-//            var filename = @$"{Path}entriesAllmost.json";
+            //            var filename = @"C:\Users\blue\Desktop\New folder\entriesAllmost.json";
             //   getthedata();
 
             createfile();
