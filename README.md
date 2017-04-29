@@ -6,4 +6,4 @@ It will then create a javascript array holding the co-ordinates of every postoff
 
 The post office data file has two errors, (we do not have a post officed in the south of spain.
 
-this was done for a 3js experiment with point-clouds
+dsfg
